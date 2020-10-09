@@ -75,8 +75,10 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
     # ===================log========================
+    # print('epoch [{}/{}], loss:{:.4f}'
+        #   .format(epoch + 1, num_epochs, loss.data[0]))
     print('epoch [{}/{}], loss:{:.4f}'
-          .format(epoch + 1, num_epochs, loss.data[0]))
+        .format(epoch + 1, num_epochs, loss.item()))
     if epoch % 10 == 0:
         pic = to_img(output.cpu().data)
         save_image(pic, './mlp_img/image_{}.png'.format(epoch))
